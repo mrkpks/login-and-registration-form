@@ -1,0 +1,38 @@
+.page {
+  background: url('../../../assets/wllppr.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.footer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  min-height: 10vh;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: .75em;
+  color: #fff;
+  text-shadow: 0 0 25px rgba(0,0,0,0.2);
+  letter-spacing: .1em;
+}

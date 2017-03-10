@@ -1,0 +1,79 @@
+<div class="border">
+  <div class="heading">
+    <strong>Register</strong>
+  </div>
+  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)">
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="text" class="form-control" name="firstName" placeholder="First Name"
+               [(ngModel)]="user.firstName" #firstName="ngModel"
+               [ngModelOptions]="{standalone: true}"
+               required>
+      </md-input-container>
+    </div>
+    <div *ngIf="(!firstName.pristine && !firstName.valid) || (firstName.pristine && f.submitted)" class="text-danger">
+      First name is required.
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="text" class="form-control" name="lastName" placeholder="Last Name"
+               [(ngModel)]="user.lastName" #lastName="ngModel"
+               [ngModelOptions]="{standalone: true}"
+               required>
+      </md-input-container>
+    </div>
+    <div *ngIf="(!lastName.pristine && !lastName.valid) || (lastName.pristine && f.submitted)" class="text-danger">
+      Last name is required.
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="email" class="form-control" name="email" placeholder="E-mail"
+               [(ngModel)]="user.email" #email="ngModel"
+               [ngModelOptions]="{standalone: true}"
+               pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+               required>
+      </md-input-container>
+    </div>
+    <div *ngIf="(!email.pristine && !email.valid) || (email.pristine && f.submitted)" class="text-danger">
+      Email is required. <br> Format: <i>john@doe.com</i>.
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="password" class="form-control" name="password" placeholder="Password"
+               [(ngModel)]="user.password" #password="ngModel"
+               [ngModelOptions]="{standalone: true}"
+               minlength="6" maxlength="30" required>
+      </md-input-container>
+    </div>
+    <div *ngIf="(!password.pristine && !password.valid) || (password.pristine && f.submitted)" class="text-danger">
+      Password must be at least 6 characters long. <br>
+    </div>
+    <div *ngIf="(!password.pristine && !checkPassword() && f.submitted)" class="text-danger">
+      Password has to consist of: <br>
+      number, lowercase and uppercase letter.
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"
+               [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel"
+               [ngModelOptions]="{standalone: true}"
+               minlength="6" maxlength="30" required>
+      </md-input-container>
+    </div>
+    <div *ngIf="(!confirmPassword.pristine && !validatePassword() && f.submitted)" class="text-danger">
+      Password mismatch
+    </div>
+    <div class="buttons">
+      <div class="button1">
+        <button md-raised-button type="submit">
+          Register
+        </button>
+      </div>
+      <div class="button2">
+        <button md-raised-button type="button" [routerLink]="['/landing/login']">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

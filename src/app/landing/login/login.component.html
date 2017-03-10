@@ -1,0 +1,29 @@
+<div class="border">
+  <div class="heading">
+    <strong>Login</strong>
+  </div>
+  <div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="email" class="form-control" placeholder="E-mail">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input md-input type="password" class="form-control" placeholder="Password" minlength="6" maxlength="18">
+      </md-input-container>
+    </div>
+    <div class="buttons">
+      <div class="button1">
+        <button md-raised-button (click)="onLoginSubmit()" type="submit">
+          Login
+        </button>
+      </div>
+      <div class="button2">
+        <button md-raised-button [routerLink]="['/landing/register']">
+          Register
+        </button>
+      </div>
+      </div>
+  </div>
+</div>
